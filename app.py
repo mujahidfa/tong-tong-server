@@ -7,7 +7,6 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
 @app.route('/')
 def hello_world():
     response = jsonify({'data': 'Hello World!'})
@@ -138,16 +137,7 @@ def mock_data():
     
 if __name__ == '__main__':
     app.debug = True
-    app.run()
-
-# from flask import Flask
-
-# UPLOAD_FOLDER = '/Users/mujahidfa/Documents/tong-tong/uploads'
-
-# app = Flask(__name__)
-# app.secret_key = "secret key"
-# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-# app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+    app.run(threaded=True)
 
 # app.py
 # from flask import Flask, request, jsonify
