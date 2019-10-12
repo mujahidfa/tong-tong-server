@@ -18,9 +18,9 @@ logilab-common==1.4.3
 MarkupSafe==1.1.1
 matplotlib==3.1.1
 mccabe==0.6.1
-mkl-fft==1.0.14
-mkl-random==1.1.0
-mkl-service==2.3.0
+mkl-fft
+mkl-random
+mkl-service
 networkx==2.3
 numpy==1.17.2
 olefile==0.46
