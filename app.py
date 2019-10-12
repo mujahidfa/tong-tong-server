@@ -39,6 +39,7 @@ def upload_image():
       #                     'filename' : str(file)
       #                   })
       response = jsonify({"text": f"{pytesseract.image_to_string(Image.open(file))}"})
+      # response = jsonify({'message' : 'DAPAT FILE'})
       response.status_code = 201
       return response
     
@@ -142,7 +143,7 @@ def mock_data():
     
 if __name__ == '__main__':
     app.debug = True
-    app.run(threaded=True)
+    app.run()
 
 # app.py
 # from flask import Flask, request, jsonify
