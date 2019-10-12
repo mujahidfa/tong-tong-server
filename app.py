@@ -55,12 +55,12 @@ def mock_data():
             "price": 2.83
           },
           {
-            "id": 1,
+            "itemid": 1,
             "name": "cili kering",
             "price": 1.22
           },
           {
-            "id": 2,
+            "itemid": 2,
             "name": "telur",
             "price": 6.09
           }
@@ -76,12 +76,12 @@ def mock_data():
                 "price": 13.96
               },
               {
-                "id": 1,
+                "itemid": 1,
                 "name": "ubat gigi colgate",
                 "price": 3.75
               },
               {
-                "id": 2,
+                "itemid": 2,
                 "name": "pisang tanduk",
                 "price": 5.02
               }
@@ -97,12 +97,12 @@ def mock_data():
                 "price": 1.43
               },
               {
-                "id": 1,
+                "itemid": 1,
                 "name": "tropicana orange",
                 "price": 2.36
               },
               {
-                "id": 2,
+                "itemid": 2,
                 "name": "cadbury chocolate",
                 "price": 0.74
               }
@@ -118,12 +118,12 @@ def mock_data():
                 "price": 6.66
               },
               {
-                "id": 1,
+                "itemid": 1,
                 "name": "hawaian potato chips",
                 "price": 5.55
               },
               {
-                "id": 2,
+                "itemid": 2,
                 "name": "lays sour and cream",
                 "price": 4.44
               }
@@ -131,7 +131,6 @@ def mock_data():
           }
         ]
       }
-      
       
     })
     response.status_code = 201
