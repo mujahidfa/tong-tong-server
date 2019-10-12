@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
+import pytesseract
+from PIL import Image
 app = Flask(__name__)
 
+pytesseract.pytesseract.tesseract_cmd = r'/usr/local/Cellar/tesseract/4.1.0/bin/tesseract'
+
 # utility function: to check for valid files, only images
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -31,15 +35,16 @@ def upload_image():
     
     # if file is valid
     if file and allowed_file(file.filename):
-      response = jsonify({'message' : 'File successfully uploaded',
-                          'filename' : str(file)
-                        })
+      # response = jsonify({'message' : 'File successfully uploaded',
+      #                     'filename' : str(file)
+      #                   })
+      response = jsonify({"text": f"{pytesseract.image_to_string(Image.open(file))}"})
       response.status_code = 201
       return response
     
     # Check for other uncaught errors
     else:
-      response = jsonify({'message' : 'Allowed file types are images: png, jpg, jpeg, gif'})
+      response = jsonify({'message' : 'Allowed file types are images: png, jpg, jpeg'})
       response.status_code = 400
       return response
 
