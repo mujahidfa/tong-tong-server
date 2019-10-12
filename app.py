@@ -10,7 +10,9 @@ def allowed_file(filename):
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    response = jsonify({'data': 'Hello World!'})
+    response.status_code = 201
+    return response
 
 @app.route('/upload_image', methods= ['POST'])
 def upload_image():
@@ -42,6 +44,99 @@ def upload_image():
       response.status_code = 400
       return response
 
+@app.route('/mock_data', methods= ['GET'])
+def mock_data():
+    response = jsonify({
+      "data": {
+        "shareditem" : [
+          {
+            "itemid": 0,
+            "name": "minyak masak",
+            "price": 2.83
+          },
+          {
+            "id": 1,
+            "name": "cili kering",
+            "price": 1.22
+          },
+          {
+            "id": 2,
+            "name": "telur",
+            "price": 6.09
+          }
+        ],
+        "personalitem": [
+          {
+            "nameid": 0,
+            "name": "A",
+            "items": [
+              {
+                "itemid": 0,
+                "name": "roti gardenia",
+                "price": 13.96
+              },
+              {
+                "id": 1,
+                "name": "ubat gigi colgate",
+                "price": 3.75
+              },
+              {
+                "id": 2,
+                "name": "pisang tanduk",
+                "price": 5.02
+              }
+            ]
+          },
+          {
+            "nameid": 1,
+            "name": "B",
+            "items": [
+              {
+                "itemid": 0,
+                "name": "kirkland pomegranate",
+                "price": 1.43
+              },
+              {
+                "id": 1,
+                "name": "tropicana orange",
+                "price": 2.36
+              },
+              {
+                "id": 2,
+                "name": "cadbury chocolate",
+                "price": 0.74
+              }
+            ]
+          },
+          {
+            "nameid": 2,
+            "name": "C",
+            "items": [
+              {
+                "itemid": 0,
+                "name": "plastik sampah",
+                "price": 6.66
+              },
+              {
+                "id": 1,
+                "name": "hawaian potato chips",
+                "price": 5.55
+              },
+              {
+                "id": 2,
+                "name": "lays sour and cream",
+                "price": 4.44
+              }
+            ]
+          }
+        ]
+      }
+      
+      
+    })
+    response.status_code = 201
+    return response
+    
 if __name__ == '__main__':
     app.debug = True
     app.run()
